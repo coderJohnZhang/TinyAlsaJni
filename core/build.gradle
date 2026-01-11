@@ -40,3 +40,20 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact(bundleReleaseAar) {
+                    builtBy tasks.getByName('bundleReleaseAar')
+                }
+                groupId = 'com.github.coderJohnZhang'
+                artifactId = 'TinyAlsaJni'
+                version = '1.0.1'
+            }
+        }
+    }
+}
