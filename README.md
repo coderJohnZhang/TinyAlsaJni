@@ -458,7 +458,7 @@ limitations under the License.
 
 ## 贡献
 
-虽然源码闭源，但我们欢迎：
+虽然核心源码闭源，但我们欢迎：
 - Bug 报告
 - 功能建议
 - 文档改进
