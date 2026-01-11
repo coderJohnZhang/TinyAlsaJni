@@ -1,10 +1,12 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
     namespace 'com.johnny.tinyalsa'
     compileSdk  35
+    
     defaultConfig {
         minSdk 21
         //noinspection ExpiredTargetSdkVersion
@@ -29,31 +31,25 @@ android {
         }
     }
 
-    android.libraryVariants.configureEach { variant ->
-        variant.outputs.all {
-            outputFileName = "tinyalsa_jni.aar"
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
-apply plugin: 'maven-publish'
-
-afterEvaluate {
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                artifact(bundleReleaseAar) {
-                    builtBy tasks.getByName('bundleReleaseAar')
-                }
-                groupId = 'com.github.coderJohnZhang'
-                artifactId = 'TinyAlsaJni'
-                version = '1.0.1'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.coderJohnZhang'
+            artifactId = 'TinyAlsaJni'
+            version = '1.0.1'
+            afterEvaluate {
+                artifact(tasks.getByName("bundleReleaseAar"))
             }
         }
     }
+}
+
+tasks.withType(PublishToMavenLocal) {
+    dependsOn 'assembleRelease'
 }
