@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="音频测试"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        tools:ignore="HardcodedText" />
+    
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="就绪"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+    
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
+    
+    <Button
+        android:id="@+id/btn_dmic_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DMIC录音(15秒)"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+    
+    <Button
+        android:id="@+id/btn_dmic_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DMIC播放"
+        android:layout_marginBottom="20dp"
+        tools:ignore="HardcodedText" />
+    
+    <Button
+        android:id="@+id/btn_linein_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LINEIN录音(15秒)"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+    
+    <Button
+        android:id="@+id/btn_linein_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LINEIN播放"
+        tools:ignore="HardcodedText" />
+    
+</LinearLayout>
