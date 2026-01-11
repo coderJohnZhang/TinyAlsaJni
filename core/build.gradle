@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
 }
 
 android {
@@ -37,14 +36,18 @@ android {
     }
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId = 'com.github.coderJohnZhang'
-            artifactId = 'TinyAlsaJni'
-            version = '1.0.1'
-            afterEvaluate {
-                artifact(tasks.getByName("bundleReleaseAar"))
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact(bundleReleaseAar) {
+                    builtBy tasks.getByName('bundleReleaseAar')
+                }
+                groupId = 'com.github.coderJohnZhang'
+                artifactId = 'TinyAlsaJni'
+                version = '1.0.1'
             }
         }
     }
