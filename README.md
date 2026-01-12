@@ -42,7 +42,7 @@ Step2. 在模块的 `build.gradle` 中添加：
 
 ```gradle
 dependencies {
-    implementation 'com.github.coderJohnZhang:TinyAlsaJni:1.0.1'
+    implementation 'com.github.coderJohnZhang:TinyAlsaJni:v1.0.1'
 }
 ```
 
